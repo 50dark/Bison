@@ -23,7 +23,7 @@
 
             </div>
             <div class="load_tailles"></div>
-            <div class="form-group text-right">:
+            <div class="form-group text-right">
                 <hr>
 
                 <input type="submit" value="valider" class="btn btn-dark">
