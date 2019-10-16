@@ -29,5 +29,30 @@
                 <input type="submit" value="valider" class="btn btn-dark">
             </div>
         </form>
+
+        <h2> Tailles disponible</h2>
+        <div class="alert alert-success remove_reponse" style="display:none"> </div>
+        <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>taille</th>
+            <th>quantité</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        @foreach($produit ->tailles as $taille)
+            <tr>
+                <td>{{$taille->nom}}</td>
+                <td>{{$taille->pivot->qte}}</td>
+                <td>
+                    <a href="#" class="btn btn-outline-danger btn-sm remove_size" data-id_produit="{{$produit->id}}"
+                    data-id_taille="{{$taille->id}}"> Retirer la taille
+                    </a>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+        </table>
     </main>
 @endsection

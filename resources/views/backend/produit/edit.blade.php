@@ -68,8 +68,9 @@
 
 {{--                    boucle categorie--}}
                         @foreach($categories as $categorie)
+
 {{--                      condition--}}
-                            @if($produit->categorie->id == $categorie->id)
+                            @if($produit->categorie && $produit->categorie->id == $categorie->id)
 {{--                         affichage de la condition     --}}
                                 <option selected value="{{$categorie->id}}"> {{$categorie->nom}}</option>
                             @endif

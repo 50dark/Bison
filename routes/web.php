@@ -14,8 +14,6 @@
 //Afficher la page d'accueil
 
 
-
-
 Route::get('/', 'Shop\MainController@index')->name('homepage');
 //Afficher la page produits dans une catégorie
 Route::get('/categorie/{id}', 'Shop\MainController@viewByCategorie')->name('view_by_cat');
@@ -64,4 +62,5 @@ Route::middleware('auth.admin')->group(function (){
     // requetes Ajax
     Route::post('/backend/produit/select/size','Backend\ProduitController@selectSizeAjax')
         ->name('backend_produit_select_size');
+    Route::post('/backend/produit/remove/size','Backend\ProduitController@removeSizeAjax')->name('backend_produit_remove_size');
 });

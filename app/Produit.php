@@ -22,7 +22,6 @@ class Produit extends Model
     {
         return number_format($this->$qte->integerValue());
     }
-
     public function categorie()
     {
         return $this->belongsTo('App\Categorie');
@@ -37,7 +36,8 @@ class Produit extends Model
     }
 
     public function tailles(){
-        return $this->belongsToMany('App\Taille')->withTimestamps();
+        return $this->belongsToMany('App\Taille')->withTimestamps()
+            ->withPivot('qte');
     }
 
 //    use SoftDeletes;

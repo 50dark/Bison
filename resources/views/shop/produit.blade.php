@@ -42,15 +42,12 @@
 
                     <label for="size">Choisissez votre taille</label>
                     <select name="size" id="size" class="form-control">
-                        <option value="xs">XS</option>
-                        <option value="s">S</option>
-                        <option value="m">M</option>
-                        <option value="l">L</option>
-                        <option value="xl">XL</option>
-                        <option value="xxl">XXL</option>
+                      @foreach($p->tailles as $taille)
+                        <option value="{{$taille->id}}">{{$taille->nom}}</option>
+                       @endforeach
                     </select>
                     <p>
-
+@if(count($p->tailles) == 0)
 {{--                        si  la quanté est 0 le boutton change forme et message--}}
                         @if($p->qte >0)
                             <label for="qte">Quantité</label>
@@ -63,7 +60,7 @@
                         <button disabled class="btn btn-cart my-2 btn-block"><i class="fas fa-shopping-cart"></i>
                                 En rupture de stock !!! </button>
                         @endif
-
+@endif
                     </p>
                    </form>
 

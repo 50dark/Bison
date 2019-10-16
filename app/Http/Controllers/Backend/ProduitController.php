@@ -173,8 +173,16 @@ if($request->tags) {
     public function selectSizeAjax(Request $request){
         $type_id = $request->type_id;
         $type = Type::find ($type_id);
+        $produit=Produit::find($request->produit_id);
+        $tailles_produit = $produit->tailles;
+        $tailles_produit_ids=[];
 
-        return view('backend.produit.select_tailles_ajax',['tailles'=>$type->tailles]);
+        foreach ($tailles_produit as $taille_produit){
+            $tailles_produit_ids[]= $taille_produit->id;
+        }
+
+        return view('backend.produit.select_tailles_ajax',
+            ['tailles'=>$type->tailles, 'tailles_produit_ids'=>$tailles_produit_ids]);
     }
 
 //    stocké la taille et le produit selectionné
@@ -186,6 +194,14 @@ public function  storeSize(Request $request){
 
     return redirect()->route('backend_produit_add_size',['id'=>$produit->id])
         ->with('notice','la taille pour le produit <strong>'.$produit->nom.'</strong> a bien ete ajoutée');
+}
+
+// Retirer l'association entre une taille et un produit
+public function  removeSizeAjax(Request $request){
+        $produit = Produit::find($request->produit_id);
+        $produit->tailles()->detach($request->taille_id);
+        $taille = Taille::find($request->taille_id);
+        return 'la taille <strong>'.$taille->nom.'</strong> a ètè retirée';
 }
 
 }
