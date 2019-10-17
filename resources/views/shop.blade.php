@@ -60,6 +60,7 @@
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            @include('info_user')
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Panier
