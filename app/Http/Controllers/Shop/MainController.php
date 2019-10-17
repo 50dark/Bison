@@ -51,6 +51,7 @@ class MainController extends Controller
             ->where('produit_id',$produit_id)
             ->first();
 
-        dd($produit_taille);
+//        dd($produit_taille);
+        return view('shop.qte_ajax',['qte'=>$produit_taille->qte]);
     }
 }
