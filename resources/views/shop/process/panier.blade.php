@@ -21,19 +21,28 @@
                     @foreach($content as $produit)
                     <tr>
                         <td>
-                            <img width="110" class="rounded-circle img-thumbnail"
+                            <img style="float: left;margin-right: 10px" width="110" class="rounded-circle img-thumbnail"
                                  src="{{asset('storage/uploads/'.$produit['attributes']['photo']) }}"
-                                 alt="">{{$produit['name']}}
-
+                                 alt="">
+                            <div style="margin-top:25px ">
+                            {{$produit['name']}}<br>
+                                @if($produit['attributes']['size'])
+                                 <strong> taille:</strong>
+                            {{$produit['attributes']['size']->nom}}
+                                @endif
+                            </div>
                         </td>
                         <td>
+                            <form action="{{route('update_product_cart',['id'=>$produit['id']])}}" method="post">
+                                @csrf
                             <input style="display: inline-block" id="qte" class="form-control col-sm-4" type="number"
+                                   max="{{$produit['attributes']['qte_maxi']}}"
                                    value="{{$produit['quantity']}}">
-
-                            <a  class="pl-2" href=""><i class="fas fa-sync"></i> </a>
+                            <button class="pl-2 change_qte" href="#"><i class="fas fa-sync"></i> </button>
+                            </form>
                         </td>
                         <td>
-                            {{$produit['attributes']['prix_ttc']}}
+                            {{$produit['attributes']['prix_ttc']}}€
                         </td>
                         <td>
                             {{number_format($produit['attributes']['prix_ttc'] * $produit['quantity'] ,2 )}} €

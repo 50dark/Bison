@@ -27,6 +27,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 //vérrifier la qte dispo
 Route::post('/panier/qte/check','Shop\MainController@changeSizeAjax')->name('panier_qte_chek');
 Route::post('/panier/add/{id}', 'shop\CartController@add')->name('add_product_cart');
+
+//modifier la quantité d'un produit dans le panier'
+Route::post('/panier/update/{id}','Shop\CartController@update')->name('update_product_cart');
+
+
 //  afficher le contenue du panier
 Route::get('/panier','shop\CartController@index')->name('cart_index');
 

@@ -64,3 +64,4 @@ function  loadQuantites(taille_id,produit_id) {
     })
 
 }
+
