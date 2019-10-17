@@ -15,7 +15,6 @@
 
 
 
-
 Route::get('/', 'Shop\MainController@index')->name('homepage');
 //Afficher la page produits dans une catégorie
 Route::get('/categorie/{id}', 'Shop\MainController@viewByCategorie')->name('view_by_cat');
@@ -30,7 +29,7 @@ Route::post('/panier/add/{id}', 'shop\CartController@add')->name('add_product_ca
 
 //modifier la quantité d'un produit dans le panier'
 Route::post('/panier/update/{id}','Shop\CartController@update')->name('update_product_cart');
-
+Route::get('/panier/remove/{id}','Shop\CartController@remove')->name('remove_product_cart');
 
 //  afficher le contenue du panier
 Route::get('/panier','shop\CartController@index')->name('cart_index');

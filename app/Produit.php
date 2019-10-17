@@ -18,6 +18,10 @@ class Produit extends Model
         return number_format($this->prix_ht * 1.2, 2);
     }
 
+    public function prixTTCPanier(){
+        return $this->prix_ht * 1.2;
+    }
+
     public function qte()
     {
         return number_format($this->$qte->integerValue());

@@ -8,6 +8,12 @@
         <section class="py-5">
             <div class="container">
                 <h1 class="jumbotron-heading"> <span class="badge badge-primary ">Votre panier </span></h1>
+                @if(count($content)==0)
+                    <div class="container text-center">
+                   <h1> salut le panier est vide </h1>
+                    <img src="https://media.giphy.com/media/pgY62hMzLdQ2c/giphy.gif" alt="">
+                    </div>
+                @else
                 <table class="table table-bordered table-responsive-sm">
                     <thead>
                     <tr>
@@ -30,12 +36,16 @@
                                  <strong> taille:</strong>
                             {{$produit['attributes']['size']->nom}}
                                 @endif
+                                <br>
+                                <a href="{{route('remove_product_cart',['id'=>$produit['id']])}}">
+                                    <i style="color: #0062cc" class="fa fa-trash"></i>
+                                </a>
                             </div>
                         </td>
                         <td>
                             <form action="{{route('update_product_cart',['id'=>$produit['id']])}}" method="post">
                                 @csrf
-                            <input style="display: inline-block" id="qte" class="form-control col-sm-4" type="number"
+                            <input style="display: inline-block"  name="qte" class="form-control col-sm-4" type="number"
                                    max="{{$produit['attributes']['qte_maxi']}}"
                                    value="{{$produit['quantity']}}">
                             <button class="pl-2 change_qte" href="#"><i class="fas fa-sync"></i> </button>
@@ -71,11 +81,7 @@
                 <a class="btn btn-block btn-outline-dark" href="">Commander</a>
             </div>
         </section>
-
-
-
-
-
     </main>
+    @endif
 
     @endsection

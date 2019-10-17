@@ -62,7 +62,10 @@
             </button>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Panier</a>
+                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Panier
+{{--                        Pastille affiche le nombre en fonction de la quantité--}}
+                    <span class="badge badge-danger">{{$total_panier}}</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -88,6 +91,8 @@
         </div>
     </nav>
 </header>
+
+@include('message_flash')
 
 @yield('content')
 {{--ajouter pour le contenu--}}
