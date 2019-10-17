@@ -57,4 +57,17 @@ class LoginController extends Controller
         }
 }
 
+public function loginProcess(Request $request){
+        $email = $request->email;
+        $password = $request->passeword;
+        if(Auth::attempt(['email'=>$email,'passeword'=>$password])){
+            $user = Auth::user();
+            return redirect()->route ('commande_adresse');
+//            }
+        }
+        else{
+            return redirect()->route('commande_identification')->with('notice','impossible de vous identifier');}
+}
+
+
 }

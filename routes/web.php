@@ -30,14 +30,18 @@ Route::post('/panier/add/{id}', 'shop\CartController@add')->name('add_product_ca
 //modifier la quantité d'un produit dans le panier'
 Route::post('/panier/update/{id}','Shop\CartController@update')->name('update_product_cart');
 Route::get('/panier/remove/{id}','Shop\CartController@remove')->name('remove_product_cart');
-
+Route::get('/commande/adresse','shop\ProcessController@adresse')->name('commande_adresse');
 //  afficher le contenue du panier
 Route::get('/panier','shop\CartController@index')->name('cart_index');
 
 
 
 Route::post('/mt/login','Auth\LoginController@loginMonTshirt')->name('login_montshirt');
+Route::post('/mt/process/login','Auth\LoginController@loginProcess')->name('login_process_montshirt');
 
+
+//route pour le process
+Route::get('/commande/identification','Shop\ProcessController@identification')->name('commande_identification');
 //route dependent de l'authantification'
 Route::middleware('auth.admin')->group(function (){
     Route::get('/backend','Backend\ProduitController@index')->name('backend_homepage');
