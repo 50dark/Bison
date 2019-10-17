@@ -175,8 +175,8 @@ if($request->tags) {
         $type = Type::find ($type_id);
         $produit=Produit::find($request->produit_id);
         $tailles_produit = $produit->tailles;
-        $tailles_produit_ids=[];
 
+        $tailles_produit_ids=[];
         foreach ($tailles_produit as $taille_produit){
             $tailles_produit_ids[]= $taille_produit->id;
         }

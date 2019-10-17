@@ -46,5 +46,7 @@ $('.remove_size').on('click',function(e){
 $('.change_size').on ('change',function(){
     let taille_id = this.value;
     let produit_id = $(this).data('produit_id')
-    axios.post('/panier/qte/check',{'taille_id':taille_id,'produit_id':produit_id});
+    axios.post('/panier/qte/check',{'taille_id':taille_id,'produit_id':produit_id}).then(reponse=> {
+        $('.load_qte').html(reponse.data);
+    })
 });
