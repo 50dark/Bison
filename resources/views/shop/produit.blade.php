@@ -40,12 +40,15 @@
                     <form action="{{route('add_product_cart',['id'=>$p->id])}} " method="POST">
                  @csrf
 
+ @if(count($p->tailles) > 0)
                     <label for="size">Choisissez votre taille</label>
-                    <select name="size" id="size" class="form-control">
+                    <select data-produit_id="{{$p->id}}" name="size" id="size" class="form-control change_size">
                       @foreach($p->tailles as $taille)
                         <option value="{{$taille->id}}">{{$taille->nom}}</option>
                        @endforeach
                     </select>
+     <div class="load_qte"></div>
+ @endif
                     <p>
 @if(count($p->tailles) == 0)
 {{--                        si  la quanté est 0 le boutton change forme et message--}}

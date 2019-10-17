@@ -70,6 +70,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-red">
         <a class="navbar-brand" href="#"></a>
+        <button href="#" class="btn btn-outline-primary float-lg-right"><i class="fas fa-shopping-cart"></i>
+            Login</button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -109,5 +111,8 @@
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/holder.min.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/montishirt.js')}}"></script>
+
 </body>
 </html>

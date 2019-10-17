@@ -14,6 +14,8 @@
 //Afficher la page d'accueil
 
 
+
+
 Route::get('/', 'Shop\MainController@index')->name('homepage');
 //Afficher la page produits dans une catégorie
 Route::get('/categorie/{id}', 'Shop\MainController@viewByCategorie')->name('view_by_cat');
@@ -21,6 +23,9 @@ Route::get('/categorie/{id}', 'Shop\MainController@viewByCategorie')->name('view
 Route::get('/produit/{id}', 'Shop\MainController@viewProduct')->name('view_product');
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+
+//vérrifier la qte dispo
+Route::post('/panier/qte/check','Shop\MainController@changeSizeAjax')->name('panier_qte_chek');
 Route::post('/panier/add/{id}', 'shop\CartController@add')->name('add_product_cart');
 //  afficher le contenue du panier
 Route::get('/panier','shop\CartController@index')->name('cart_index');
@@ -63,4 +68,5 @@ Route::middleware('auth.admin')->group(function (){
     Route::post('/backend/produit/select/size','Backend\ProduitController@selectSizeAjax')
         ->name('backend_produit_select_size');
     Route::post('/backend/produit/remove/size','Backend\ProduitController@removeSizeAjax')->name('backend_produit_remove_size');
+
 });

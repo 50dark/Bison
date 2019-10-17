@@ -6,6 +6,7 @@ use App\Categorie;
 use App\Http\Controllers\Controller;
 use App\Produit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
@@ -36,5 +37,20 @@ class MainController extends Controller
         $p = Produit::find($request->id);
 
         return view('shop.produit', ['p' => $p,]);
+    }
+
+
+    public function changeSizeAjax(Request $request){
+
+        $taille_id=$request->taille_id;
+        $produit_id=$request->produit_id;
+
+
+        $produit_taille = DB::table('produit_taille')
+            ->where('taille_id',$taille_id)
+            ->where('produit_id',$produit_id)
+            ->first();
+
+        dd($produit_taille);
     }
 }
