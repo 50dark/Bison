@@ -78,7 +78,7 @@
                     </tr>
                     </tfoot>
                 </table>
-                <a class="btn btn-block btn-outline-dark" href="{{route('login_process_montshirt')}}">Commander</a>
+                <a class="btn btn-block btn-outline-dark" href="{{route('commande_identification')}}">Commander</a>
             </div>
         </section>
     </main>

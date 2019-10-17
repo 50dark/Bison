@@ -59,8 +59,8 @@ class LoginController extends Controller
 
 public function loginProcess(Request $request){
         $email = $request->email;
-        $password = $request->passeword;
-        if(Auth::attempt(['email'=>$email,'passeword'=>$password])){
+        $password = $request->password;
+        if(Auth::attempt(['email'=>$email,'password'=>$password])){
             $user = Auth::user();
             return redirect()->route ('commande_adresse');
 //            }
