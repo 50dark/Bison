@@ -76,12 +76,19 @@ if($request->size == null){
     //    mettre a jour la quantite d'un produit dans le panier
     public function update(Request $request)
         {
-        \Cart::update($request ->id, array(
-            'quantity'=>array(
-                'relative'=> false,
-    'value'=>$request->qte
-),
-));
+
+            if ($request->qte <0){
+
+                \Cart::remove($request ->id);
+            }else {
+
+                \Cart::update($request->id, array(
+                    'quantity' => array(
+                        'relative' => false,
+                        'value' => $request->qte
+                    ),
+                ));
+            }
  return redirect()->route('cart_index')->with('notice','la quantité a ete modifier');
         }
 

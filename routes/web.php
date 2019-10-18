@@ -15,6 +15,8 @@
 
 
 
+
+Route::get('/commande/paiement','shop\ProcessController@paiement')->name('commande_paiement');
 Route::get('/', 'Shop\MainController@index')->name('homepage');
 //Afficher la page produits dans une catégorie
 Route::get('/categorie/{id}', 'Shop\MainController@viewByCategorie')->name('view_by_cat');
