@@ -49,4 +49,8 @@ class User extends Authenticatable
       }
       return false;
   }
+
+  public function adresse(){
+      return $this->belongsTo('App\Adresse');
+  }
 }

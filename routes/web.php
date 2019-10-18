@@ -38,7 +38,7 @@ Route::get('/panier','shop\CartController@index')->name('cart_index');
 
 Route::post('/mt/login','Auth\LoginController@loginMonTshirt')->name('login_montshirt');
 Route::post('/mt/process/login','Auth\LoginController@loginProcess')->name('login_process_montshirt');
-
+Route::post('/commande/store/adresse','Shop\ProcessController@adresseStore')->name('commande_store_adresse');
 
 //route pour le process
 Route::get('/commande/identification','Shop\ProcessController@identification')->name('commande_identification');

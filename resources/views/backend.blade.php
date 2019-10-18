@@ -16,6 +16,9 @@
     <!-- Custom styles for this template -->
     <link href="{{asset('css/backend.css')}}" rel="stylesheet">
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
+            integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -24,7 +27,6 @@
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">MonTShirt</a>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Quitter</a>
         </li>
     </ul>
 </nav>

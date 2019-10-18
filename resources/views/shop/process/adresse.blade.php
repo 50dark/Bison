@@ -25,49 +25,67 @@
             <div class="row">
 
                 <div class="col-md-12 order-md-1">
-                    <form class="needs-validation" novalidate>
+                    <form action="{{route('commande_store_adresse')}}" method="POST">
+                        @csrf
+
+                        @if ($errors->any())
+                            <div class="alert-danger">
+                                @foreach($errors->all() as $error)
+                                    <p> {{$error}} </p>
+                                @endforeach
+                            </div>
+                        @endif
+
                         <div class="row">
                             <div class="col-md-4 mb-4">
                                 <label for="prenom">Votre prénom</label>
-                                <input type="text" class="form-control" id="prenom" name="nom">
+                                <input type="text" class="form-control" id="prenom" name="prenom" value="{{$adresse->prenom ?? old('prenom')}}">
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label for="nom">Votre nom <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="nom" name="nom">
+                                <input type="text" class="form-control" id="nom" name="nom" value="{{$adresse->nom ?? old('nom')}}">
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label for="telephone">Votre téléphone <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="telephone" name="code_postal">
+                                <input type="text" class="form-control" id="telephone" name="telephone"value="{{$adresse->telephone ?? old('telephone')}}">
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <label for="email">Votre  email <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="telephone" name="email" value="{{$adresse->email ?? old('email')}}">
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="address">Votre adresse <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="address">
+                            <label for="adresse">Votre adresse <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="adresse" name="adresse" value="{{$adresse->adresse ?? old('adresse')}}">
                         </div>
 
                         <div class="mb-3">
-                            <label for="address2">Complément d'adresse<span class="text-muted">(Optional)</span></label>
-                            <input type="text" class="form-control" id="address2" name="address2">
+                            <label for="adresse2">Complément d'adresse<span class="text-muted">(Optional)</span></label>
+                            <input type="text" class="form-control" id="adresse2" name="adresse2">
                         </div>
 
                         <div class="row">
                             <div class="col-md-4 mb-4">
                                 <label for="ville">Votre ville <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="ville" name="code_postal">
+                                <input type="text" class="form-control" id="ville" name="ville" value="{{$adresse->vile ?? old('ville')}}">
                             </div>
 
                             <div class="col-md-3 mb-3">
                                 <label for="code_postal">Votre code postal <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="code_postal" name="code_postal">
+                                <input type="text" class="form-control" id="code_postal" name="code_postal" value="{{$adresse->code_postal ?? old('code_postal')}}">
                             </div>
 
                             <div class="col-md-5 mb-3">
-                                <label for="country">Votre pays <span class="text-danger">*</span></label>
-                                <select class="custom-select d-block w-100" id="country" required>
-                                    <option value="FR">France</option>
-                                    <option value="BE">Belgique</option>
-                                    <option value="CH">Suisse</option>
+                                <label for="pays">Votre pays <span class="text-danger">*</span></label>
+                                <select class="custom-select d-block w-100" id="country" name="pays"
+                                        value="{{$adresse->pays ?? old('pays')}}" required>
+                                    @foreach($pays as $code=>$p)
+                                        <option @if(old('pays') == $code || (isset($adresse->pays) && $adresse->pays == $code))
+                                                selected @endif
+                                    value="{{$code}}">{{$p}}</option>
+                                    @endforeach
+
                                 </select>
                             </div>
 

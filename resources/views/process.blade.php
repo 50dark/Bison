@@ -46,6 +46,7 @@
             </div>
         </div>
     </div>
+
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
             <a href="{{route('homepage')}}" class="navbar-brand d-flex align-items-center">
@@ -56,17 +57,16 @@
                 </svg>
                 <strong>Mon T-Shirt</strong>
             </a>
+            @include('info_user')
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Panier
-{{--                        Pastille affiche le nombre en fonction de la quantité--}}
-                    <span class="badge badge-danger">{{$total_panier}}</span>
-                    </a>
-                </li>
+                <li class="nav-item"></li>
+                   <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Panier
+                         {{-- Pastille affiche le nombre en fonction de la quantité--}}
+                   <span class="badge badge-danger">{{$total_panier}}</span>
+                   </a>
             </ul>
         </div>
     </div>
