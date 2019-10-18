@@ -20,37 +20,21 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($commandes as $commande)
                     <tr>
-                        <td>5</td>
-                        <td>15/05/2018</td>
-                        <td>Marie de Ubeda</td>
-                        <td>75009</td>
-                        <td>57.00 €</td>
+                        <td>{{$commande->id}}</td>
+                        <td>{{$commande->created_at}}</td>
+                        <td>{{$commande->user->name}}</td>
+                        <td>{{$commande->adresse->code_postal}}</td>
+                        <td>{{number_format($commande->total_ttc,2)}}€</td>
                         <td>
                             <button class="btn btn-sm btn-primary">Voir</button>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                {{$commandes->links()}}
             </div>
         </main>
 

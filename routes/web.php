@@ -15,7 +15,6 @@
 
 
 
-
 Route::get('/commande/paiement','shop\ProcessController@paiement')->name('commande_paiement');
 Route::get('/', 'Shop\MainController@index')->name('homepage');
 //Afficher la page produits dans une catégorie
@@ -78,5 +77,7 @@ Route::middleware('auth.admin')->group(function (){
     Route::post('/backend/produit/select/size','Backend\ProduitController@selectSizeAjax')
         ->name('backend_produit_select_size');
     Route::post('/backend/produit/remove/size','Backend\ProduitController@removeSizeAjax')->name('backend_produit_remove_size');
+
+    Route::get('/backend/commandes','Backend\CommandeController@index')->name('backend_commande_index');
 
 });
