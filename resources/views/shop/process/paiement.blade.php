@@ -19,7 +19,7 @@
             <div class="col-md-12 order-md-1">
 
                     <button class="btn btn-warning btn-lg btn-block" type="submit">Accéder au paiement sécurisé</button>
-                    <button class="btn btn-warning btn-lg btn-block" type="submit">Accéder au paiement par cheque</button>
+                    <a href="{{route('commande_store')}}"class="btn btn-warning btn-lg btn-block" type="submit">Accéder au paiement par cheque</a>
             </div>
         </div>
 

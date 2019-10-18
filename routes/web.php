@@ -35,13 +35,13 @@ Route::get('/panier/remove/{id}','Shop\CartController@remove')->name('remove_pro
 Route::get('/commande/adresse','shop\ProcessController@adresse')->name('commande_adresse');
 //  afficher le contenue du panier
 Route::get('/panier','shop\CartController@index')->name('cart_index');
-
+Route::get('/commande/merci','Shop\ProcessController@merci')->name('commande_merci');
 
 
 Route::post('/mt/login','Auth\LoginController@loginMonTshirt')->name('login_montshirt');
 Route::post('/mt/process/login','Auth\LoginController@loginProcess')->name('login_process_montshirt');
 Route::post('/commande/store/adresse','Shop\ProcessController@adresseStore')->name('commande_store_adresse');
-
+Route::get('/commande/store','Shop\ProcessController@commandeStore')->name('commande_store');
 //route pour le process
 Route::get('/commande/identification','Shop\ProcessController@identification')->name('commande_identification');
 //route dependent de l'authantification'

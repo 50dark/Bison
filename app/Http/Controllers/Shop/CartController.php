@@ -34,6 +34,7 @@ if($request->size == null){
             'price' => $produit->prix_ht,
             'quantity' => $request->qte,
             'attributes' => array(
+                'id'=>$produit->id,
                 'qte_maxi'=>$qte_maxi,
                 'size' => $taille,
                 'photo' => $produit->photo_principale,
@@ -86,6 +87,10 @@ if($request->size == null){
                     'quantity' => array(
                         'relative' => false,
                         'value' => $request->qte
+
+
+
+
                     ),
                 ));
             }
