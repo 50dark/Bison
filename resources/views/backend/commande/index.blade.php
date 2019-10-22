@@ -28,13 +28,14 @@
                         <td>{{$commande->adresse->code_postal}}</td>
                         <td>{{number_format($commande->total_ttc,2)}}€</td>
                         <td>
-                            <button class="btn btn-sm btn-primary">Voir</button>
+                            <a href="{{route('backend_commande_show',['id'=>$commande->id])}}"
+                             class="btn btn-sm btn-primary">Voir</a>
                         </td>
                     </tr>
                     @endforeach
                     </tbody>
                 </table>
-                {{$commandes->links()}}
+                {{$commandes->links()}}</div>
             </div>
         </main>
 

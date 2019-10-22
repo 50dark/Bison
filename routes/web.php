@@ -17,11 +17,15 @@
 
 Route::get('/commande/paiement','shop\ProcessController@paiement')->name('commande_paiement');
 Route::get('/', 'Shop\MainController@index')->name('homepage');
+
 //Afficher la page produits dans une catégorie
 Route::get('/categorie/{id}', 'Shop\MainController@viewByCategorie')->name('view_by_cat');
+
 //Afficher la page pour consulter le détail d'un produit
 Route::get('/produit/{id}', 'Shop\MainController@viewProduct')->name('view_product');
+
 Auth::routes(['verify' => true]);
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //vérrifier la qte dispo
@@ -38,8 +42,11 @@ Route::get('/commande/merci','Shop\ProcessController@merci')->name('commande_mer
 
 
 Route::post('/mt/login','Auth\LoginController@loginMonTshirt')->name('login_montshirt');
+
 Route::post('/mt/process/login','Auth\LoginController@loginProcess')->name('login_process_montshirt');
+
 Route::post('/commande/store/adresse','Shop\ProcessController@adresseStore')->name('commande_store_adresse');
+
 Route::get('/commande/store','Shop\ProcessController@commandeStore')->name('commande_store');
 //route pour le process
 Route::get('/commande/identification','Shop\ProcessController@identification')->name('commande_identification');
@@ -79,5 +86,7 @@ Route::middleware('auth.admin')->group(function (){
     Route::post('/backend/produit/remove/size','Backend\ProduitController@removeSizeAjax')->name('backend_produit_remove_size');
 
     Route::get('/backend/commandes','Backend\CommandeController@index')->name('backend_commande_index');
+
+    Route::get('/backend/commande/{id}','Backend\CommandeController@show')->name('backend_commande_show');
 
 });
